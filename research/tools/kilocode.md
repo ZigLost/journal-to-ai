@@ -2,16 +2,45 @@
 
 ## Step to be friend with it
 
-### Config rules
+### 1. Config rules
 
 - [code style context (kotlin)](../context/code-style-kotlin-context.md)
 
-### Config workflows
+### 2. Config workflows
 
 - [specify](https://github.com/github/spec-kit/releases)
+
+State Transition Diagram
+
+```mermaid
+stateDiagram-v2
+    [*] --> Constitution
+
+    state "Constitution" as Constitution
+    state "Specify" as Specify
+    state "Clarify" as Clarify
+    state "Plan" as Plan
+    state "Tasks" as Tasks
+    state "Analyze" as Analyze
+    state "Implement" as Implement
+
+    Constitution --> Specify: /specify
+    Specify --> Clarify: /clarify
+    Clarify --> Specify: /specify
+
+    Specify --> Plan: /plan
+    Plan --> Tasks: /tasks
+    Tasks --> Analyze: /analyze
+    Analyze --> Plan: feedback loop
+    Analyze --> Implement: /implement
+    Tasks --> Implement: /implement
+
+    Implement --> [*]
+```
+
 - [document context (kotlin)](../context/document-kotlin-context.md)
 
-### Setting Providers
+### 3. Setting Providers
 
 1. Add new profile with your name.
 2. Select OpenRouter as API Provider.
@@ -20,7 +49,7 @@
 5. Choose free AI model (As of 2025-10-03, I think `x-ai/grok-4-fast:free` is good enough for help you coding, documenting, and reviewing).
 6. In Advanced settings, don't forget to Enable todo list tool. This will help you see the big picture step-by-step before kilo code will take action.
 
-### Index your codebase
+### 4. Index your codebase
 
 1. Download and install [Ollama](https://ollama.com/download).
 2. Run command `ollama pull bge-m3:latest` for downloading embedding model used for indexing your codebase files.
