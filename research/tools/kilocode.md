@@ -4,7 +4,12 @@
 
 ### Config rules
 
+- [code style context (kotlin)](../context/code-style-kotlin-context.md)
+
 ### Config workflows
+
+- [specify](https://github.com/github/spec-kit/releases)
+- [document context (kotlin)](../context/document-kotlin-context.md)
 
 ### Setting Providers
 
